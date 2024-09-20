@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.web</groupId>
-	<artifactId>Mensalidades</artifactId>
+	<artifactId>mensalidades</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Mensalidades</name>
+	<name>mensalidades</name>
 	<description>Um projeto de API para gerenciar pagamentos de mensalidades de futebol</description>
 	<url/>
 	<licenses>

@@ -1,4 +1,4 @@
-package dev.web.Mensalidades;
+package dev.web.mensalidades;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
