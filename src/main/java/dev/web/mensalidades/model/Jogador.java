@@ -2,11 +2,16 @@ package dev.web.mensalidades.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;  
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name = "jogador")
@@ -26,6 +31,11 @@ public class Jogador {
 
     @Column(name = "datanasc", nullable = false)
     private Date datanasc;
+
+
+    @JsonManagedReference
+    @OneToMany(mappedBy="jogador")
+    private List<Pagamento> pagamentos;
 
     public Jogador() {
 
@@ -67,6 +77,14 @@ public class Jogador {
 
     public void setDatanasc(Date datanasc) {
         this.datanasc = datanasc;
+    }
+
+    public List<Pagamento> getPagamentos(){
+        return pagamentos;
+    }
+
+    public void setPagamentos(List<Pagamento> pagamentos){
+        this.pagamentos = pagamentos;
     }
 
     @Override

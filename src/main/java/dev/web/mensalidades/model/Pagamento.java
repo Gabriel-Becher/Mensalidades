@@ -4,7 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 
 
@@ -23,6 +27,10 @@ public class Pagamento {
 
     @Column(name = "valor", nullable = false)
     private double valor;
+
+    @ManyToOne
+    @JsonBackReference
+    Jogador jogador;
 
     public Pagamento() {
 
@@ -65,6 +73,14 @@ public class Pagamento {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public Jogador getJogador(){
+        return jogador;
+    }
+
+    public void setJogador(Jogador jogador){
+        this.jogador = jogador;
     }
 
     @Override
