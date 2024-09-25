@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,5 +34,15 @@ public class JogadorController {
 
     }
 
+    @PostMapping("/")
+    public ResponseEntity<Jogador> createJogador(@RequestBody Jogador jogador) {
+        try {
+            Jogador j = jog.save(new Jogador(jogador.getNome(), jogador.getEmail(), jogador.getDatanasc()));
+            return new ResponseEntity<>(j, HttpStatus.CREATED);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }    
 
 }
