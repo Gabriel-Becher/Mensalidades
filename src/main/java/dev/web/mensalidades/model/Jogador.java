@@ -21,17 +21,14 @@ public class Jogador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cod_jogador;
 
-
     @Column(name = "nome", nullable = false, length = 60, unique = true)
     private String nome;
-
 
     @Column(name = "emeil", nullable = false, length = 60)
     private String email;
 
     @Column(name = "datanasc", nullable = false)
     private Date datanasc;
-
 
     @JsonManagedReference
     @OneToMany(mappedBy="jogador")
