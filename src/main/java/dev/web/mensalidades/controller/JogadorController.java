@@ -52,20 +52,23 @@ public class JogadorController {
 
     @PutMapping("/{cod_jogador}")
     public ResponseEntity<Jogador> updateJogador(@PathVariable("cod_jogador") long cod_jogador, @RequestBody Jogador jogador) {
-
-        Optional<Jogador> data = jog.findById(cod_jogador);
-
-        if (data.isPresent()) {
-            Jogador j = data.get();
-
-            if(jogador.getNome() != null && !jogador.getNome().isEmpty()) j.setNome(jogador.getNome());
-            if(jogador.getEmail() != null && !jogador.getEmail().isEmpty()) j.setEmail(jogador.getEmail());
-            if(jogador.getDatanasc() != null) j.setDatanasc(jogador.getDatanasc());
-
-            return new ResponseEntity<>(jog.save(j), HttpStatus.OK);
+        try{
+            
+            Optional<Jogador> data = jog.findById(cod_jogador);
+            
+            if (data.isPresent()) {
+                Jogador j = data.get();
+                
+                if(jogador.getNome() != null && !jogador.getNome().isEmpty()) j.setNome(jogador.getNome());
+                if(jogador.getEmail() != null && !jogador.getEmail().isEmpty()) j.setEmail(jogador.getEmail());
+                if(jogador.getDatanasc() != null) j.setDatanasc(jogador.getDatanasc());
+                
+                return new ResponseEntity<>(jog.save(j), HttpStatus.OK);
+            }   
+            else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch(Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
     }    
 

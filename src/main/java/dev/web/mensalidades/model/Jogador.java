@@ -10,6 +10,9 @@ import jakarta.persistence.Column;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -32,7 +35,10 @@ public class Jogador {
 
     @JsonManagedReference
     @OneToMany(mappedBy="jogador")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Pagamento> pagamentos;
+
+    
 
     public Jogador() {
 
