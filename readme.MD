@@ -26,7 +26,7 @@
 
 ### Get(/api/pagamentos?nome=nome)
 
-- Retona todos os pagamentos registrados no sistema
+- Retorna todos os pagamentos registrados no sistema
   - Retorna todos os pagamentos de um jogador se fornecido um nome
 
 ### Post(/api/pagamentos/{id})
