@@ -1,5 +1,7 @@
 # RestAPI em Java para um trabalho da disciplina de Desenvolvimento Web
 
+# Desenvolvido por Gabriel Antônio Becher e Matheus Felipe do Rocio D'avila
+
 ## O sistema consiste em cadastrar Jogadores e pagamentos mensais para os mesmos
 
 ## Rotas de Jogadores
