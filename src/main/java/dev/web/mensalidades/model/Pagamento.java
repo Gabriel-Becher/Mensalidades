@@ -31,7 +31,7 @@ public class Pagamento {
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "cod_jogador")
+    @JoinColumn(name = "cod_jogador", referencedColumnName="cod_jogador")
     Jogador jogador;
 
     public Pagamento() {

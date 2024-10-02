@@ -12,7 +12,7 @@
 
 ### Post(/api/)
 
-- Recebe os dados de um jogador no formato {nome: "nome", email: "email", datanasc: "dd/MM/yyyy"}
+- Recebe os dados de um jogador no formato {nome: "nome", email: "email", datanasc: "yyyy/MM/dd"}
 
 ### Put(/api/{cod_jogador})
 
